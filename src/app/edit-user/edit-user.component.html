@@ -1,0 +1,128 @@
+<div class="container">
+  <div class="row">
+    <form class="form-horizontal edit-user-sec" #ngEditForm="ngForm" novalidate>
+      <fieldset>
+        <legend>Edit </legend>
+        
+        <div class="form-group">
+          <label for="inputName" class="col-lg-2 control-label">Name</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="inputName" placeholder="Name" [(ngModel)]="ngEditForm.name" name="ngEditForm.name" #myName="ngModel" required>
+            <div *ngIf="myName.errors && (myName.dirty || myName.touched)" class="alert alert-danger">
+                  <div [hidden]="!myName.errors.required">
+                    Name is required
+                  </div>
+            </div>
+          </div>
+        </div>  
+        
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="inputEmail" placeholder="Email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="ngEditForm.email" name="ngEditForm.email" #myEmail="ngModel" required>
+            <div *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="alert alert-danger">
+                  <div [hidden]="!myEmail.errors.required">
+                    Email is required
+                  </div>
+
+                  <div [hidden]="!myEmail.errors.pattern">
+                    Email is not valid
+                  </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+          <div class="col-lg-10">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" minlength="8" maxlength="12" [(ngModel)]="ngEditForm.password" name="ngEditForm.password" #myPassword="ngModel" required>
+              <div *ngIf="myPassword.errors && (myPassword.dirty || myPassword.touched)" class="alert alert-danger">
+                  <div [hidden]="!myPassword.errors.required">
+                    Password is required
+                  </div>
+                  <div [hidden]="!myPassword.errors.minlength">
+                    Password must be at least 8 characters long.
+                  </div>
+                  <div [hidden]="!myPassword.errors.maxlength">
+                    Password cannot be more than 12 characters long.
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="" class="col-lg-2 control-label">Hobby</label>
+          <div class="col-lg-10">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="hobby[]" value="dance"> Dance <br/> 
+                <input type="checkbox" name="hobby[]" value="cricket"> Cricket 
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">Address</label>
+          <div class="col-lg-10">
+            <textarea class="form-control" rows="3" id="textArea" [(ngModel)]="ngEditForm.address" name="ngEditForm.address" minlength="20" maxlength="50" #address="ngModel" required></textarea>
+            <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+              <div *ngIf="address.errors && (address.dirty || address.touched)" class="alert alert-danger">
+                  <div [hidden]="!address.errors.required">
+                    Address is required
+                  </div>
+                  <div [hidden]="!address.errors.minlength">
+                    Address must be at least 20 characters long.
+                  </div>
+                  <div [hidden]="!address.errors.maxlength">
+                    Address cannot be more than 50 characters long.
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Gender</label>
+          <div class="col-lg-10">
+            <div class="radio">
+              <label>
+                <input type="radio" name="gender" id="male" value="male" checked="">
+                Male
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="gender" id="female" value="female">
+                Female
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="select" class="col-lg-2 control-label">State</label>
+          <div class="col-lg-10">
+            <select class="form-control" id="select">
+              <option value="mp">MP</option>
+              <option value="ap">AP</option>
+              <option value="up">UP</option>
+              <option value="hp">HP</option>
+            </select>
+            <br>
+          
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="select" class="col-lg-2 control-label">Profile</label>
+          <div class="col-lg-10">
+            <input type="file" name="img">  
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
