@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
-      <form class="form-horizontal login-form" #loginForm="ngForm" novalidate>
+      <form class="form-horizontal login-form" #loginForm="ngForm" (ngSubmit)="insert()" novalidate>
         <fieldset>
           <legend>LOGIN</legend>
           <div class="form-group">
             <label for="inputEmail" class="col-lg-2 control-label">Email</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="inputEmail" placeholder="Email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  [(ngModel)]="loginForm.email" name="email" #myEmail="ngModel" required>
+              <input type="text" class="form-control" id="inputEmail" placeholder="Email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  [(ngModel)]="login.email" name="login.email" #myEmail="ngModel" required>
     
               <div *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="alert alert-danger">
                     <div [hidden]="!myEmail.errors.required">
@@ -23,7 +23,7 @@
           <div class="form-group">
             <label for="inputPassword" class="col-lg-2 control-label">Password</label>
             <div class="col-lg-10">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password" minlength="8" maxlength="12" [(ngModel)]="loginForm.password" name="password" #myPassword="ngModel" required>
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password" minlength="8" maxlength="12" [(ngModel)]="login.password" name="login.password" #myPassword="ngModel" required>
               <div *ngIf="myPassword.errors && (myPassword.dirty || myPassword.touched)" class="alert alert-danger">
                   <div [hidden]="!myPassword.errors.required">
                     Password is required
@@ -40,13 +40,18 @@
           
           <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-              <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid" (click)="addContact()">Submit</button>
+              <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Submit</button>
             </div>
           </div>
         </fieldset>
       </form>
 
       <!-- <app-sidenav></app-sidenav> -->
+      
+      <div *ngIf="responseObject && responseObject.message" class="text-center">
+        {{responseObject.message}}
+      </div>
 
     </div>
 </div>
+
