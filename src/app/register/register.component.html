@@ -62,7 +62,8 @@
   </div>
 </div>
 
-
-{{msgResponse}}
-
-{{test}}
+ <ul>
+  <li  *ngIf="responseObject && responseObject.message">
+    {{responseObject.message}}
+  </li>
+</ul> 

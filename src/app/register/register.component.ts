@@ -7,23 +7,18 @@ import {ApiService} from '../api.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  test = "hello";
-  msgResponse = "";
-  
-
+    responseObject;
   constructor(private newService:ApiService) { }
 
-  ngOnInit() {
+  ngOnInit() { // It will work on onload
   }
 
   insert(data){
-      var name:string  = "";
-      var email:any    = "";
-      var password:any = "";
+      let name:string  = "";
+      let email:any    = "";
+      let password:any = "";
+      let self = this;
       
-      //console.log(data);
-
       name     = data.name;
       email    = data.email;
       password = data.password;
@@ -42,16 +37,7 @@ export class RegisterComponent implements OnInit {
 
       this.newService.insertData(data)
       .subscribe(function(response){
-        this.responseObject = response;
-        console.log(this.responseObject);
-        //this.abc = this.responseObject.message;
-        //this.abc = "hello ho how";
+        self.responseObject = response;
       });
-
-      this.msgResponse = "heelo h  ho ow";
-
   }
-
-
-
 }
