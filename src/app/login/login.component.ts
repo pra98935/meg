@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {ApiService} from '../api.service';
+import { ApiService } from '../services/api.service';
 import { Usermodel } from '../model/usermodel';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -14,20 +16,15 @@ export class LoginComponent implements OnInit {
   
   login: Usermodel = new Usermodel();
 
-  constructor(private newService:ApiService){}
+  constructor(private newService:ApiService,private router: Router){}
 
   ngOnInit() {
-    // this.newService.fetchData()
-    // .subscribe(function(t){
-    //   console.log(t);
-    //   });
+    console.log(localStorage.getItem("email_id"));
+    if(localStorage.getItem("email_id")){
+      console.log("agian login page");
+       this.router.navigate(['/user-list']);
+    }
   }
-
-  // addContact(){
-  //   console.log("submit form");
-  //   var submit = "form sumit";
-  //   return submit;
-  // }
 
   insert(){
     let self = this;
@@ -49,11 +46,10 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("email_id", self.responseObject.result.email_id);
           localStorage.setItem("user_id", self.responseObject.result.user_id);
       }
-
+      
+      
+      
     });
-    
-    //console.log(this.login);
-    //console.log(this.login.email);
   }
 
 }

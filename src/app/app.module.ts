@@ -19,7 +19,15 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import {MdSidenavModule} from '@angular/material';
 
 import { HttpModule }    from '@angular/http';
-import { ApiService } from './api.service';
+import { ApiService } from './services/api.service';
+import { SharedService } from './services/shared.service';
+import { MyguardGuard } from './myguard.guard';
+import { LogoutComponent } from './logout/logout.component';
+import { AllVideoComponent } from './components/all-video/all-video.component';
+
+import { VideoComponent } from './video/video.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+
 
 
 @NgModule({
@@ -33,7 +41,11 @@ import { ApiService } from './api.service';
     EditUserComponent,
     ViewUserComponent,
     AnimationComponent,
-    SidenavComponent
+    SidenavComponent,
+    LogoutComponent,
+    AllVideoComponent,
+    SidebarComponent,
+    VideoComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +55,7 @@ import { ApiService } from './api.service';
     MdSidenavModule,
     HttpModule
   ],
-  providers: [ApiService],
+  providers: [ApiService,SharedService,MyguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

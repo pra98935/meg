@@ -1,0 +1,18 @@
+<section class="sec-sidebar">
+  <section class="side-category">
+    <h2>Category</h2>
+    <!-- <ul>
+      {{data.message}}
+      <li *ngFor="let data of responseObject">
+        <a routerLink="#">{{data.message}}</a>
+      </li>
+    </ul> -->
+
+    <div *ngIf="categoryResultObject && categoryObject.message" class="text-center">
+        {{categoryObject.message}}
+        {{categoryResultObject.name}}
+    </div>
+    hello
+
+  </section>
+</section>

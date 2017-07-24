@@ -16,6 +16,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
           <li><a routerLink="/user-list">User</a></li>
+          <li><a routerLink="/video">All</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
@@ -31,7 +32,14 @@
         </ul>
         
         <ul class="nav navbar-nav navbar-right">
-          <li><a routerLink="/login">Login</a></li>
+          <!-- <li *ngIf="!bindEmail"><a routerLink="/login">Login</a></li>
+          <li *ngIf="bindEmail"><a routerLink="#">Logout</a></li> -->
+           
+          <li *ngIf="bindEmail;then logout else login"></li>
+          <ng-template #logout><li><a routerLink="/logout">Logout</a></li></ng-template>
+          <ng-template #login><li><a routerLink="/login">Login</a></li></ng-template>
+
+
           <li><a routerLink="/register">Register</a></li>
           <li><a routerLink="/animation">Animation</a></li>
         </ul>

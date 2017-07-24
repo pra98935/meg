@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from '../api.service';
+import { ApiService } from '../services/api.service';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-register',
@@ -7,10 +8,13 @@ import {ApiService} from '../api.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-    responseObject;
-  constructor(private newService:ApiService) { }
+  responseObject;
+  
+  constructor(private newService:ApiService, private globalVariable:SharedService) { }
 
   ngOnInit() { // It will work on onload
+    console.log(this.globalVariable.loginUserData);
+    console.log(this.globalVariable.loginUserData[0].loginEmail);
   }
 
   insert(data){

@@ -7,6 +7,11 @@ import{ UserListComponent } from "./user-list/user-list.component";
 import{ EditUserComponent } from "./edit-user/edit-user.component";
 import{ ViewUserComponent } from "./view-user/view-user.component";
 import{ AnimationComponent } from "./animation/animation.component";
+import{ LogoutComponent } from "./logout/logout.component";
+import { AllVideoComponent } from './components/all-video/all-video.component';
+import { MyguardGuard } from './myguard.guard';
+import { VideoComponent } from './video/video.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -14,10 +19,13 @@ export const router: Routes = [
     { path: "", redirectTo:"login", pathMatch:"full" },
     { path: "login", component:LoginComponent},
     { path: "register", component:RegisterComponent},
-    { path: "user-list", component:UserListComponent},
+    { path: "user-list", component:UserListComponent,canActivate: [MyguardGuard]},
     { path: "edit-user", component:EditUserComponent},
     { path: "view-user", component:ViewUserComponent},
-    { path: "animation", component:AnimationComponent}
+    { path: "animation", component:AnimationComponent},
+    { path: "logout", component:LogoutComponent,canActivate: [MyguardGuard]},
+    { path: "video", component:VideoComponent,canActivate: [MyguardGuard]}
+
     
 ];
 
