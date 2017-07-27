@@ -1,18 +1,11 @@
 <section class="sec-sidebar">
   <section class="side-category">
     <h2>Category</h2>
-    <!-- <ul>
-      {{data.message}}
-      <li *ngFor="let data of responseObject">
-        <a routerLink="#">{{data.message}}</a>
+     <ul>
+       <li><a routerLink="#">&raquo; All</a></li>
+      <li *ngFor="let data of categoryResultArray">
+        <a  id="{{data.id}}" (click)="getAnchorId($event)">&raquo; {{data.name}}</a>
       </li>
-    </ul> -->
-
-    <div *ngIf="categoryResultObject && categoryObject.message" class="text-center">
-        {{categoryObject.message}}
-        {{categoryResultObject.name}}
-    </div>
-    hello
-
+    </ul> 
   </section>
 </section>

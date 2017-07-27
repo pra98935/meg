@@ -12,6 +12,7 @@ import { AllVideoComponent } from './components/all-video/all-video.component';
 import { MyguardGuard } from './myguard.guard';
 import { VideoComponent } from './video/video.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SingleVideoComponent } from './single-video/single-video.component';
 
 
 
@@ -24,7 +25,8 @@ export const router: Routes = [
     { path: "view-user", component:ViewUserComponent},
     { path: "animation", component:AnimationComponent},
     { path: "logout", component:LogoutComponent,canActivate: [MyguardGuard]},
-    { path: "video", component:VideoComponent,canActivate: [MyguardGuard]}
+    { path: "video", component:VideoComponent,canActivate: [MyguardGuard]},
+    { path: "single-video", component:SingleVideoComponent,canActivate: [MyguardGuard]},
 
     
 ];

@@ -22,6 +22,26 @@ export class ApiService {
       .catch(this.handleError)
   }
 
+  public getAllVideo(): Observable<Object>{
+      let headers = new Headers();
+      let body = [{"method":"getSubCategoryviaCategory","category_id":"0","user_id":"7"}];
+      return this.http.post('http://megint.org/administrator/genral_apis/category_apis.php', body)
+    .map(response => {
+      return response.json();
+    })
+      .catch(this.handleError)
+  }
+
+  public getSingleCategoryVideo(data): Observable<Object>{
+      let headers = new Headers();
+      let body = data;
+      return this.http.post('http://megint.org/administrator/genral_apis/category_apis.php', body)
+    .map(response => {
+      return response.json();
+    })
+      .catch(this.handleError)
+  }
+
   public insertData(data): Observable<Object>{
     let body = data;
     return this.http.post('http://devpatidar.com/app/administrator/genral_apis/customer_apis.php', body)

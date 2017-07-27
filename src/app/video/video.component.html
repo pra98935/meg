@@ -1,10 +1,37 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <app-sidebar></app-sidebar>
+      <!-- <app-sidebar></app-sidebar> -->
+      <section class="sec-sidebar">
+        <section class="side-category">
+          <h2>Category</h2>
+          <ul>
+            <li><a (click)="getAnchorId($event)" id="0">&raquo; All</a></li>
+            <li *ngFor="let data of categoryResultArray">
+              <a  id="{{data.id}}" (click)="getAnchorId($event)">&raquo; {{data.name}}</a>
+            </li>
+          </ul> 
+        </section>
+      </section>
     </div> 
     <div class="col-md-8">
-      All video list
+      <section>
+        <h2>All video list</h2>
+        <ul class="video-ul">
+          <li *ngFor="let list of responseArray" class="col-md-4 video-list">
+            <img src='{{list.cover_image}}' height="150">
+            <div class="info-video-list">
+              <div class="avatar_img"><img src="{{list.user_image}}"></div>
+              <div class="meta-right">
+                <div class="cat_name">{{list.category}}</div>
+                <div class="video-title"><a routerLink="/single-video">{{list.name}}</a></div>
+                <div class="video-desc">{{list.description}}</div>
+                <div class="video-date">{{list.added_on}}</div>
+              </div>
+            </div>
+          </li>
+        </ul> 
+      </section>  
     </div>
   </div>
 </div>

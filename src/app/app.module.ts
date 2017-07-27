@@ -27,6 +27,7 @@ import { AllVideoComponent } from './components/all-video/all-video.component';
 
 import { VideoComponent } from './video/video.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SingleVideoComponent } from './single-video/single-video.component';
 
 
 
@@ -46,6 +47,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AllVideoComponent,
     SidebarComponent,
     VideoComponent,
+    SingleVideoComponent,
   ],
   imports: [
     BrowserModule,
