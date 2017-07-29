@@ -11,9 +11,12 @@ export class SidebarComponent implements OnInit {
   categoryObject;
   categoryResultArray;
   
-  constructor(private newService:ApiService, private globalVariable:SharedService) { }
-
+  constructor(private newService:ApiService, private globalVariable:SharedService) { 
+    console.log("video page");
+  }
+  
   ngOnInit() {
+    
     let self = this;
     this.newService.fetchData()
     .subscribe(

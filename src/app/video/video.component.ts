@@ -72,5 +72,5 @@ export class VideoComponent implements OnInit {
     });
 
   }
-
+ 
 }

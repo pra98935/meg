@@ -9,7 +9,7 @@ export class MyguardGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      if(this.globalVariable.loginUserData[0].loginEmail){
+      if(this.globalVariable.loginUserData && this.globalVariable.loginUserData.loginEmail){
         console.log("you are login in guard");
         return true;
       }else{

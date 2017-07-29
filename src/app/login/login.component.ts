@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../services/api.service';
+import { SharedService } from '../services/shared.service';
 import { Usermodel } from '../model/usermodel';
 import { Router } from '@angular/router';
  
@@ -13,10 +14,10 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   responseObject;
-  
+   
   login: Usermodel = new Usermodel();
 
-  constructor(private newService:ApiService,private router: Router){}
+  constructor(private newService:ApiService,private router: Router,private globalVariable:SharedService){}
 
   ngOnInit() {
     console.log(localStorage.getItem("email_id"));
@@ -45,11 +46,19 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("account_type", self.responseObject.result.account_type);
           localStorage.setItem("email_id", self.responseObject.result.email_id);
           localStorage.setItem("user_id", self.responseObject.result.user_id);
+          console.log("just login");
+
+          self.globalVariable.setUserLocalStorage();
+          self.router.navigate(['/video']);
+          
       }
+
+      
       
       
       
     });
+    
   }
 
 }

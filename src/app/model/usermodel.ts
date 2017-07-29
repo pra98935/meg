@@ -10,4 +10,4 @@ export class Usermodel {
         //Object.assign(target, ...sources)
         Object.assign(this, values); 
     }
-}
+} 

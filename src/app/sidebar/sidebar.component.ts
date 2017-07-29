@@ -33,6 +33,6 @@ export class SidebarComponent implements OnInit {
     console.log(idCategory);
     self.globalVariable.setCategoryId(idCategory);
   }
-
+ 
 }
 

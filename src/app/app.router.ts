@@ -27,8 +27,9 @@ export const router: Routes = [
     { path: "logout", component:LogoutComponent,canActivate: [MyguardGuard]},
     { path: "video", component:VideoComponent,canActivate: [MyguardGuard]},
     { path: "single-video", component:SingleVideoComponent,canActivate: [MyguardGuard]},
+    { path: "all-video", component:AllVideoComponent}
 
     
-];
+]; 
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
